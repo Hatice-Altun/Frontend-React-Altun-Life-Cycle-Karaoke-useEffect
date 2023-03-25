@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import NameItem from "./components/NameItem";
+import "./App.css";
 
 function App() {
+  const [activeName, setActiveName] = useState('');
+
+  useEffect(() => {
+    console.log("We gaan beginnen!");
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <>
+        <h1>De actieve naam is: {activeName}</h1>
+        <ul>
+          <NameItem name="Hatice" activeName={activeName} setActiveName={setActiveName} />
+          <NameItem name="Esther" activeName={activeName} setActiveName={setActiveName} />
+          <NameItem name="Melisa" activeName={activeName} setActiveName={setActiveName} />
+        </ul>
+      </>
   );
 }
 
